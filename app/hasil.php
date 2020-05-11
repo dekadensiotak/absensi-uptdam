@@ -1,7 +1,9 @@
 <?php
 require_once "../db/db.php";
 require_once "../function/function.php";
-require_once "../assets/view/header.php";
+
+ob_start();
+session_start();
 
 date_default_timezone_set('ASIA/JAKARTA');
 
@@ -29,8 +31,9 @@ if ($kode_captcha === $_SESSION['code']) {
 } else {
   header('location: salahcaptcha.php');
 }
-?>
 
+require_once "../assets/view/header.php";
+?>
 <div class="row justify-content-center mb-3">
   <h1>Absen Berhasil</h1>
 </div>
@@ -59,5 +62,4 @@ if ($kode_captcha === $_SESSION['code']) {
     </tbody>
   </table>
 </div>
-
 <?php require_once "../assets/view/footer.php";?>

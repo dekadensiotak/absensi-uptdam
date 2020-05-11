@@ -8,7 +8,3 @@
 </head>
 <body>
   <div class="container">
-  <?php
-  ob_start();
-  session_start();
-  ?>

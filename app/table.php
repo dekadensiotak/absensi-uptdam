@@ -1,7 +1,9 @@
 <?php
 require_once "../db/db.php";
 require_once "../function/function.php";
-require_once "../assets/view/header.php";
+
+ob_start();
+session_start();
 
 if(!isset($_SESSION['username'])) header('location:login.php');
 
@@ -14,8 +16,9 @@ if(isset($_POST['filter'])) {
 
   $absen = tampilkan_karyawan_by_no_induk($no_induk);
 }
-?>
 
+require_once "../assets/view/header.php";
+?>
 <div class="row">
   <div class="col">
     <h1>TABELNYA</h1>
@@ -67,5 +70,4 @@ if(isset($_POST['filter'])) {
     </tbody>
   </table>
 </div>
-
 <?php require_once "../assets/view/footer.php";?>

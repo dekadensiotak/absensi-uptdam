@@ -1,5 +1,4 @@
 <?php
-require_once "assets/view/header.php";
 require_once "db/db.php";
 require_once "function/function.php";
 
@@ -8,16 +7,16 @@ if(isset($_SESSION['username'])) {
 } else {
   $alert = "<div class='row justify-content-center'><p><a href='app/logout.php'>Login?</a></p></div>";
 }
-?>
 
+date_default_timezone_set('ASIA/JAKARTA');
+
+require_once "assets/view/header.php";
+?>
 <div class="row justify-content-center">
   <h1>Ngabsen</h1>
 </div>
 <div class="row justify-content-center">
-  <?php
-    date_default_timezone_set('ASIA/JAKARTA');
-    echo "<p>" . tgl_indo(date('Y-m-d-D')) . "</p>";
-  ?>
+  <?="<p>" . tgl_indo(date('Y-m-d-D')) . "</p>";?>
 </div>
 <div class="row justify-content-center mt-2">
   <form action="app/hasil.php" class="col-md-4 col" method="post">
@@ -44,7 +43,5 @@ if(isset($_SESSION['username'])) {
     <button type="submit" class="btn btn-primary mb-2">Confirm</button>
   </form>
 </div>
-
 <?=$alert;?>
-
 <?php require_once "assets/view/footer.php";?>

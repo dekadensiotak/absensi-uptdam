@@ -1,7 +1,9 @@
 <?php
 require_once "../db/db.php";
 require_once "../function/function.php";
-require_once "../assets/view/header.php";
+
+ob_start();
+session_start();
 
 if(isset($_SESSION['username'])) header('location:table.php');
 
@@ -11,8 +13,9 @@ if (isset($_POST['submit'])) {
   
   login($username, $password);
 }
-?>
 
+require_once "../assets/view/header.php";
+?>
 <div class="row mt-2">
   <p><a href="../index.php">Home</a></p>
 </div>

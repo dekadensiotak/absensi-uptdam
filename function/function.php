@@ -63,7 +63,7 @@ function login($username, $password) {
 }
 
 function tampilkan_absen() {
-  $query = "SELECT * FROM absensi JOIN karyawan ON absensi.no_induk = karyawan.no_induk";
+  $query = "SELECT * FROM absensi JOIN karyawan ON absensi.no_induk = karyawan.no_induk ORDER BY tanggal DESC";
   return run($query);
 }
 
@@ -73,6 +73,6 @@ function tampilkan_karyawan() {
 }
 
 function tampilkan_karyawan_by_no_induk($no_induk) {
-  $query = "SELECT * FROM absensi JOIN karyawan ON absensi.no_induk = karyawan.no_induk WHERE no_induk = '$no_induk'";
+  $query = "SELECT * FROM absensi JOIN karyawan ON absensi.no_induk = karyawan.no_induk WHERE absensi.no_induk = '$no_induk' ORDER BY tanggal DESC";
   return run($query);
 }
