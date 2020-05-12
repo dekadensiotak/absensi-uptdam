@@ -2,8 +2,11 @@
 require_once "db/db.php";
 require_once "function/function.php";
 
+ob_start();
+session_start();
+
 if(isset($_SESSION['username'])) {
-  $alert = "<div class='row justify-content-center'><p>Anda sedang login | <a href='app/logout.php'>Logout</a></p></div>";
+  $alert = "<div class='row justify-content-center'><p>Anda sedang login | <a href='app/logout.php' class='logout'>Logout</a></p></div>";
 } else {
   $alert = "<div class='row justify-content-center'><p><a href='app/logout.php'>Login?</a></p></div>";
 }
@@ -45,3 +48,11 @@ require_once "assets/view/header.php";
 </div>
 <?=$alert;?>
 <?php require_once "assets/view/footer.php";?>
+
+<script>
+  const logout = document.querySelector('.logout');
+
+  logout.addEventListener('click', function(event) {
+    confirm('yakin?');
+  });
+</script>

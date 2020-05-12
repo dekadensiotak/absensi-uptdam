@@ -23,6 +23,9 @@ require_once "../assets/view/header.php";
   <div class="col">
     <h1>TABELNYA</h1>
   </div>
+  <div class="col">
+    <p><a href="../index.php">Home</a></p>
+  </div>
   <div class="col text-right">
     <p><a href="logout.php">Logout</a></p>
   </div>
