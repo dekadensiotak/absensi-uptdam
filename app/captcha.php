@@ -1,20 +1,21 @@
 <?php
 session_start();
-function acakCaptcha() {
+function acakCaptcha()
+{
   $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
   $font = "leadcoat.ttf";
   //untuk menyatakan $pass sebagai array
-  $pass = array(); 
+  $pass = array();
 
   //masukkan -2 dalam string length
-  $panjangAlpha = strlen($alphabet) - 2; 
+  $panjangAlpha = strlen($alphabet) - 2;
   for ($i = 0; $i < 5; $i++) {
-      $n = rand(0, $panjangAlpha);
-      $pass[] = $alphabet[$n];
+    $n = rand(0, $panjangAlpha);
+    $pass[] = $alphabet[$n];
   }
 
   //ubah array menjadi string
-  return implode($pass); 
+  return implode($pass);
 }
 
 // untuk mengacak captcha
@@ -41,4 +42,3 @@ imagestring($wh, 10, 50, 15,  $code, $fc);
 header('content-type: image/png');
 imagepng($wh);
 imagedestroy($wh);
-?>
