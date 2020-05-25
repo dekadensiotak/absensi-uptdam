@@ -90,3 +90,9 @@ function tampilkan_karyawan_by_no_induk_dan_bulan($no_induk, $bulan)
   $query = "SELECT * FROM absensi JOIN karyawan ON absensi.no_induk = karyawan.no_induk WHERE absensi.no_induk = '$no_induk' AND MONTH(absensi.tanggal) = '$bulan' ORDER BY tanggal DESC";
   return run($query);
 }
+
+function hapus_absensi($id_absensi)
+{
+  $query = "DELETE FROM absensi WHERE id_absensi = '$id_absensi'";
+  return run($query);
+}

@@ -78,6 +78,7 @@ require_once "../assets/view/header.php";
         <th scope="col">Tanggal</th>
         <th scope="col">Status</th>
         <th scope="col">Jam</th>
+        <th scope="col">Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -90,6 +91,9 @@ require_once "../assets/view/header.php";
           <td><?= date('d M y', strtotime($row['tanggal'])); ?></td>
           <td><?= $row['status_absen']; ?></td>
           <td><?= date('H:i', strtotime($row['tanggal'])); ?></td>
+          <td>
+            <a href="hapus.php?id_absensi=<?= $row['id_absensi']; ?>" class="btn btn-danger" onclick="confirm('yakin dihapus?');">Delete</a>
+          </td>
         </tr>
       <?php endwhile; ?>
     </tbody>
